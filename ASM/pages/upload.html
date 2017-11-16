@@ -1,0 +1,95 @@
+<div ng-controller="uploadCtrl">
+    <div class="row col-md-6">   
+    <div class="registerInner">
+        <div class="col-md-12">
+            <h3 class="headerSign">Tải Lên Video</h3>
+            <form>
+                <!-- <div class="form-group">
+                    <input class="form-control" type="text" name="youtubeId" placeholder="ID dùng để check thông tin" ng-model="checkid">
+                    
+
+                    <div repeat="check in checkids">
+                        <button class="btn" ng-click="checkVideo(check.id,check.snippet.title,check.snippet.description,check.snippet.tags)">CHeck</button>
+                        <button ></button>
+                        <button ng-click="idaaaaa()">AAAAAAAA</button>
+                    </div>
+
+
+                </div> -->
+                <div class="form-group">
+                    <input class="form-control" type="text" name="youtubeId" placeholder="ID video của bạn" ng-model="Objj.data.attributes.youtubeId">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Tên Hiển Thị Video" ng-model="Objj.data.attributes.name">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="text" placeholder="Mô Tả Video" ng-model="Objj.data.attributes.description">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="fullName" placeholder="Từ Khóa" ng-model="Objj.data.attributes.keywords" >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="playlist" placeholder="Playlist" ng-model="Objj.data.attributes.playlistId">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="fullName" placeholder="Link Ảnh Hiển Thị Video" ng-model="Objj.data.attributes.thumbnail">
+                </div>
+            </form>
+            <div id="msgsuccessupload" class="alert alert-success" role="alert" ng-show="msgsuccessupload"></div>
+            <div id="msgerrorsupload" class="alert alert-danger" role="alert" ng-show="msgerrorsupload"></div>
+            <button type="button" class=" signbuttons btn btn-primary" ng-click="btnUp()">Tải Lên</button>
+        </div>                 
+    </div>          
+    </div>
+
+    <div class="searchup col-md-4">   
+        <div>
+            <div class="panel-heading">
+                <form class="" role="search">
+                    <input type="text" id="inputsearchchup" class="search-query form-control" placeholder="Search Upload" ng-model='inputsearchchup' />
+                    <button id="btnSearchUp" type="submit" class="btn" ng-click="btnSearchUp()"></button>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="video1 col-md-3" ng-repeat="video in listVideoUp">
+                        <img ng-click="getInfoUp(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)" ng-src="{{video.snippet.thumbnails.medium.url}}" style="max-width:100%">
+                        
+                        <div class="title">
+                            {{video.snippet.title}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal anil" id="showInfoVideoUp" class="modal fade" role="dialog" ng-repeat="video in listVideoUp">
+        <span class="closemodal" id="closemodal" data-dismiss="modal">&times;</span>
+        <div class="modal-dialog">
+            <div class="modal-content" ng-repeat="infoUp in getInfoVideoUp">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thông Tin Video : {{infoUp.snippet.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div><img src="https://i.ytimg.com/vi/{{infoUp.id}}/mqdefault.jpg"></div><br>
+                    <div>                                       
+                    <strong class="titleshow">Tên Video : </strong><span>{{infoUp.snippet.title}}</span><br><br>
+                    <strong class="titleshow">Kênh đăng tải : </strong><span>{{infoUp.snippet.channelTitle}}</span><br><br>
+                    <strong class="titleshow">Ngày đăng tải : </strong><span></span>{{infoUp.snippet.publishedAt}}<br><br>
+                    <strong class="titleshow">Mô tả : </strong><span></span>{{infoUp.snippet.description}}<br><br>
+                    <strong class="titleshow">Từ khóa : </strong><span></span>{{infoUp.snippet.tags}}<br><br>
+                    <strong class="titleshow">Liên kết : </strong><span><a class="linkvideo" href="https://www.youtube.com/watch?v={{infoUp.id}}">https://www.youtube.com/watch?v={{infoUp.id}}</a></span><br><br>
+                    </div>
+                    <button ng-click="addtoplaylist(infoUp.id,infoUp.snippet.title,infoUp.snippet.description,infoUp.snippet.tags)" type="button" class="btn btn-success">Thêm Vào PlayList</button> 
+                    <button id="closeupload" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Éc Túp</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<link REL="SHORTCUT ICON" HREF="img/img.ico">
+</head>
+<body ng-controller="panelctrl">
+	<div class="navbar navbar-inverse">
+        <div class="container-fluid">
+	        <div class="navbar-header">
+	        	<a id="menu-toggle" href="#" class="navbar-brand">
+                    <i class="glyphicon glyphicon-align-justify"></i>
+		        </a>
+	            <a class="navbar-brand" href="#!home"><span class="glyphicon glyphicon-piggy-bank"></span> Éc Túp</a>
+	        </div>
+	        <ul class="nav navbar-nav">
+	            <li id="activeh"><a href="#!home"><span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+	            <li id="activep"><a href="#!playlist"><span class="glyphicon glyphicon-play-circle"></span> Danh Sách Phát</a></li>
+	            <form class="navbar-form navbar-right search-form" role="search">
+                <input id="inputsearch" type="text" class="form-control" placeholder="Search Video" value="" ng-model='inputsearch' />
+                <button id="btnsearch" class="btn" ng-click="btnsearch()" ng-show="hide"></button>
+                <a href="#!upload"><button id="btnUpload" type="button" class="btn btn-danger btn-circle btn-xl" ng-show="isLoggedIn"><i class="glyphicon glyphicon-upload">Upload</i></button></a>
+            </form>
+	        </ul>
+	        <div class="welcome">
+	        	<div id="wel" ng-show="isLoggedIn">Welcome {{loggedInUsername}} </div>
+	        	<span ng-show="isLoggedIn">(<a href="#" ng-click="handleLogout()">Đăng xuất</a>)</span>
+	        </div>
+	        	<div class="collapse navbar-collapse" id="bs-slide-dropdown">
+			        <ul class="nav navbar-nav">
+			        	<li class="dropdown" ng-hide="isLoggedIn">
+						  <a href="#!home" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Người Dùng <span class="caret"></span></a>				
+						  <ul class="dropdown-menu" role="menu">
+			                <li><a href="#!login"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+			                <li><a href="#!res"><span class="glyphicon glyphicon-new-window"></span> Đăng Kí</a></li>
+			              </ul>                
+			            </li>
+			        </ul>
+			    </div>
+	        </div> 
+        </div>
+    </div>
+   	<div id="wrapper">
+    	<div id="sidebar-wrapper">
+	        <div id="spy">
+	            <ul class="sidebar-nav nav">
+	                <li class="sidebar-brand">
+	                	
+	                    <a href="#!home"><span class="fa fa-home solo">Trang Chủ</span></a>
+	                </li>
+	                <li>
+	                    <a href="#anch1">
+	                        <span class="fa fa-anchor solo">*</span>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="#anch2">
+	                        <span class="fa fa-anchor solo">*</span>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="#anch3">
+	                        <span class="fa fa-anchor solo">*</span>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="#anch4">
+	                        <span class="fa fa-anchor solo">*</span>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+		</div> 
+	    <main>
+			<div ng-view></div>	
+		</main>	
+	</div>
+
+    
+    
+    <div class="copyright">
+     <div class="container">
+       
+         <div class="row text-center">
+         	<p>Copyright © 2017 by ĐTT_T1707A / DVT_T1707A</p>
+         </div>
+         
+ 	   </div>
+    </div>
+	
+	
+  	<!-- **************************************** -->
+  	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jq-scr.js"></script>
+	<script type="text/javascript" src="js/ag-scr.js"></script>
+</body>
+</html>

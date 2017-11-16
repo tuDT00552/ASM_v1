@@ -1,0 +1,214 @@
+    <div class="col-md-12">
+        <div class="row col-md-6 registeration">
+            
+        <div class="registerInner" ng-controller="rescontrol">
+            <div class="col-md-12 signUp">
+                <h3 class="headerSign">Sign Up</h3>
+                <div class="alert alert-info" role="alert">Nếu đã có tài khoản vui lòng <a id="register-login" href="#!login">Đăng Nhập</a> </div>
+                <form name="myForm">
+                    <div class="form-group">
+                      <input name="username" type="text" class="form-control"
+                       placeholder="Tên đăng nhập" ng-model="Obj.data.attributes.username" ng-minlength="6"
+                       ng-maxlength="50" ng-pattern="/^[a-zA-Z]+$/" required>
+                       <i class="fa fa-check text-success"
+                       ng-show="myForm.username.$dirty && myForm.username.$valid">
+                      </i>
+                       
+                       <div ng-show="myForm.username.$dirty && myForm.username.$invalid" class="text-danger"> 
+                        <i class="fa fa-times text-danger"></i> 
+                        <span ng-show="myForm.username.$error.required"> *Tài khoản không được bỏ trống </span> 
+                        <span ng-show="myForm.username.$error.minlength"> *Tài khoản phải dài hơn 7 kí tự </span> 
+                        <span ng-show="myForm.username.$error.maxlength"> *Tài khoản phải ngắn hơn 50 kí tự </span> 
+                        <span ng-show="myForm.username.$error.pattern"> *Tài khoản chỉ bao gồm các kí tự chữ cái </span>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <input name="password" ng-model="Obj.data.attributes.password" type="password" class="form-control"
+                         placeholder="Mật khẩu" ng-minlength="6" ng-maxlength="30" required>
+                        <i class="fa fa-check text-success" ng-show="myForm.password.$dirty && myForm.password.$valid">
+                        </i>
+                         
+                        <div ng-show="myForm.password.$dirty && myForm.password.$invalid" class="text-danger">
+                          <i class="fa fa-times text-danger"></i>
+                            <span ng-show="myForm.password.$error.required"> *Mật khẩu không được bỏ trống</span>
+                            <span ng-show="myForm.password.$error.minlength"> *Mật khẩu phải dài hơn 7 kí tự</span>
+                            <span ng-show="myForm.password.$error.maxlength"> *Mật khẩu phải ngắn hơn 30 kí tự</span>
+                        </div>    
+                    </div>
+
+                    <div class="form-group">
+                      <input class="form-control" type="password" ng-model="rePassword" name="rePassword" placeholder="Nhập Lại Mật Khẩu" ng-minlength="6" ng-maxlength="30" required>
+                      <i class="fa fa-check text-success" ng-show="myForm.rePassword.$dirty && myForm.rePassword.$valid"></i>  
+                        <div ng-show="myForm.rePassword.$dirty && myForm.rePassword.$invalid" class="text-danger">
+                          <i class="fa fa-times text-danger"></i>
+                            <span ng-show="myForm.rePassword.$error.required"> *Nhập lại mật khẩu.</span>
+                            <span ng-show="myForm.rePassword.$error.minlength"> *Mật khẩu phải dài hơn 6 kí tự</span>
+                            <span ng-show="myForm.rePassword.$error.maxlength"> *Mật khẩu phải ngắn hơn 30 kí tự</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                    <input name="fullName" type="text" class="form-control"
+                       placeholder="Họ và tên" ng-model="Obj.data.attributes.fullName" ng-minlength="6"
+                       ng-maxlength="50" ng-pattern="/^[a-zA-Z]+$/" required>
+                        <i class="fa fa-check text-success"
+                       ng-show="myForm.fullName.$dirty && myForm.fullName.$valid">
+                      </i>
+                       
+                      <div ng-show="myForm.fullName.$dirty && myForm.fullName.$invalid" class="text-danger"> 
+                        <i class="fa fa-times text-danger"></i> 
+                        <span ng-show="myForm.fullName.$error.required"> *Họ và tên không được bỏ trống </span> 
+                        <span ng-show="myForm.fullName.$error.minlength"> *Họ và tên phải dài hơn 6 kí tự </span> 
+                        <span ng-show="myForm.fullName.$error.maxlength"> *Họ và tên phải ngắn hơn 50 kí tự </span> 
+                        <span ng-show="myForm.fullName.$error.pattern"> *Họ và tên chỉ bao gồm các kí tự chữ cái </span>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="email" placeholder="Địa Chỉ Email" ng-model="Obj.data.attributes.email">
+                    </div>
+                    <input type="date" class="form-control" id="date" name="student_dob" placeholder="Ngày Sinh Có Dạng MM/DD/YYYY" type="text"/>
+                    <div class="date">
+                      <label>Giới Tính : </label>
+                      <label class="checkbox-inline">
+                        <label><input type="radio" id="inlineCheckbox1" value="1" name="gender"> Nam</label>
+                    </label>
+                    <label class="checkbox-inline">
+                       <label><input type="radio" id="inlineCheckbox2" value="0" name="gender"> Nữ</label>
+                    </label>
+                    </div>
+                </form>
+                <div id="msgsuccessregister" class="alert alert-success" role="alert" ng-show="msgsuccessregister"></div>
+                <div id="msgerrorsregister" class="alert alert-danger" role="alert" ng-show="msgerrorsregister"></div>
+                <button type="button" class=" signbuttons btn btn-primary" ng-click="btnRes()">Sign Up</button>
+                <a href="#!login" type="button" class=" logbuttons btn btn-success" ng-show="hideloginbtn">Login</a>
+            </div>                 
+        </div>          
+        </div>
+
+        <div id="myCarousel" class="carousel slide col-md-6" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <h3 class="headerSign"><span class="glyphicon glyphicon-pencil"></span> Đánh Giá Từ Người Dùng</h3>
+            <div class="carousel-inner">
+            <div id="slogan" class="item active">
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="https://baomoi-photo-3-td.zadn.vn/17/06/18/105/22557743/2_91017.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Linh Ka</strong></h3>
+                        <p>Em rất thích trang web của anh 😘 Em sẽ rủ đám bạn Cancer của em sử dụng trang web của anh thay cho Muvik 💖 Maiiu 💖💖💖💖💖</p>
+                        <p><strong style="color: red;">admin :</strong> 🙂 !</p>
+                    </div> 
+                </div>
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="http://a9.vietbao.vn/images/vn999/150/2015/03/20150316-ve-dep-dam-chat-tay-cua-em-gai-ca-si-phuong-linh-1.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Phương Ly</strong></h3>
+                        <p>Kể từ thời ngày hôm nay đây sẽ là Mặt Trời Của Em 💖💖💖💖💖</p>
+                        <p><strong style="color: red;">admin :</strong> 💖 !</p>
+                    </div> 
+                </div>
+            </div>
+            <div id="slogan" class="item">
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="https://znews-photo-td.zadn.vn/w1024/Uploaded/rohunwa/2017_07_27/153124.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Tùng EmTiPi</strong></h3>
+                        <p>Anh cần một bản hợp đồng để xin phép được hợp tác và upload những ca khúc mới lên trang web của em 🤔🤔🤔🤔</p>
+                    </div> 
+                </div>
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="http://api.muvik.tv/x-keam/images/tungson_anhcudidi.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Tùng Sơn</strong></h3>
+                        <p>Em đăng nhạc được không 😍😍😍😍</p>
+                        <p><strong style="color: red;">admin :</strong> Biến ! 😢😢😢</p>
+                    </div> 
+                </div>
+            </div>
+            <div id="slogan" class="item">
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2014_12_22/CcMrOwT8.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Tiểu Phú JackMa</strong></h3>
+                        <p>Đây là một điều chưa từng xảy ra trước đó 😵😵😵 Tôi nghĩ mình sẽ đầu tư vào đúng chỗ 😎😎😎</p>
+                    </div> 
+                </div>
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="img/pew.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Pew Pew</strong></h3>
+                        <p>Học đi các em các cháu , bố mẹ ở nhà thì còn lưng ra nuôi ăn học . Yêu với đương cái gì .. yêu với đương cái gì 😳😳😳</p>
+                    </div> 
+                </div>
+            </div>
+            </div>
+        </div>
+    <!--     </div>
+ -->     
+
+
+
+
+        <!-- <div class="row quotes">
+            <h3 class="headerSign"><span class="glyphicon glyphicon-pencil"></span> Đánh Giá Từ Người Dùng</h3>
+            <div id="slogan">
+                <div class="imgslogan col-md-3">
+                    <img src="https://baomoi-photo-3-td.zadn.vn/17/06/18/105/22557743/2_91017.jpg">
+                </div>
+                <div class="slogan col-md-9">
+                    <h3><strong>Linh Ka</strong></h3>
+                    <p>Em rất thích trang web của anh 😘 Em sẽ rủ đám bạn Cancer của em sử dụng trang web của anh thay cho Muvik 💖 Maiiu 💖💖💖💖💖</p>
+                </div> 
+            </div>
+            <div id="slogan">
+                <div class="imgslogan col-md-3">
+                    <img src="https://znews-photo-td.zadn.vn/w1024/Uploaded/rohunwa/2017_07_27/153124.jpg">
+                </div>
+                <div class="slogan col-md-9">
+                    <h3><strong>Tùng EmTiPi</strong></h3>
+                    <p>Anh cần một bản hợp đồng để xin phép được hợp tác và upload những ca khúc mới lên trang web của em 🤔🤔🤔🤔</p>
+                </div> 
+            </div>
+            <div id="slogan">
+                <div class="imgslogan col-md-3">
+                    <img src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2014_12_22/CcMrOwT8.jpg">
+                </div>
+                <div class="slogan col-md-9">
+                    <h3><strong>Tiểu Phú JackMa</strong></h3>
+                    <p>Đây là một điều chưa từng xảy ra trước đó 😵😵😵 Tôi nghĩ mình sẽ đầu tư vào đúng chỗ 😎😎😎</p>
+                </div> 
+            </div>
+        </div> -->
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

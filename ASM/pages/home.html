@@ -1,0 +1,124 @@
+<div class="panel panel-info" ng-controller="videocontrol">
+    <div class="panel-heading"><span class="glyphicon glyphicon-sound-stereo"></span> Nhạc Đang Hot</div>
+    <div class="panel-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <div id="Carousel" class="carousel slide">
+                         
+                        <ol class="carousel-indicators">
+                            <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#Carousel" data-slide-to="1"></li>
+                            <li data-target="#Carousel" data-slide-to="2"></li>
+                        </ol>
+                         
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            
+                        <div class="item active">
+                            <div class="row video">
+                                <div class="col-md-3" ng-repeat="video in listVideo"><a class="thumbnail"><img ng-click="showVideo(video.id.videoId)" ng-src="{{video.snippet.thumbnails.medium.url}}" alt="Image" style="max-width:100%;"></a><span class="btn" id="btninfo" ng-click="showInfo(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span><div class="text-center"><strong><div class="titlevideo">{{video.snippet.title}}</div></strong></div></div>
+                            </div><!--.row-->
+                        </div><!--.item-->  
+                        <div class="item">
+                            <div class="row video">
+                                <div class="col-md-3" ng-repeat="video in listVideo1"><a class="thumbnail"><img ng-click="showVideo(video.id.videoId)" ng-src="{{video.snippet.thumbnails.medium.url}}" alt="Image" style="max-width:100%;"></a><span class="btn" id="btninfo" ng-click="showInfo(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span><div class="text-center"><strong><div class="titlevideo">{{video.snippet.title}}</div></strong></div></div>
+                            </div><!--.row-->
+                        </div>               
+                        <div class="item">
+                            <div class="row video">
+                                <div class="col-md-3" ng-repeat="video in listVideo2"><a class="thumbnail"><img ng-click="showVideo(video.id.videoId)" ng-src="{{video.snippet.thumbnails.medium.url}}" alt="Image" style="max-width:100%;"></a><span class="btn" id="btninfo" ng-click="showInfo(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span><div class="text-center"><strong><div class="titlevideo">{{video.snippet.title}}</div></strong></div></div>
+                            </div><!--.row-->
+                        </div>
+
+
+                   
+
+
+                        </div><!--.carousel-inner-->
+                        <!--   <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+                          <a data-slide="next" href="#Carousel" class="right carousel-control">›</a> -->
+                    </div><!--.Carousel-->
+                </div>
+            </div>
+            <div class="modal modalvideo anil" id="myModal">
+                <span class="closemodal" id="closemodal">&times;</span>
+                <div class="modal-body">
+                  <iframe class="modal-content" id="video-frame" width="854" height="480" src="" frameborder="0" allowfullscreen></iframe>
+                </div>  
+            </div>
+            <div class="modal anil" id="showInfo" class="modal fade" role="dialog" ng-repeat="video in listVideo">
+                <span class="closemodal" id="closemodal" data-dismiss="modal">&times;</span>
+                <div class="modal-dialog">
+                    <div class="modal-content" ng-repeat="tag in gettag">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thông Tin Video : {{tag.snippet.title}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div><img src="https://i.ytimg.com/vi/{{tag.id}}/mqdefault.jpg"></div><br>
+                            <div>                                       
+                            <strong class="titleshow">Tên Video : </strong><span>{{tag.snippet.title}}</span><br><br>
+                            <strong class="titleshow">Kênh đăng tải : </strong><span>{{tag.snippet.channelTitle}}</span><br><br>
+                            <strong class="titleshow">Ngày đăng tải : </strong><span></span>{{tag.snippet.publishedAt}}<br><br>
+                            <strong class="titleshow">Mô tả : </strong><span></span>{{tag.snippet.description}}<br><br>
+                            <strong class="titleshow">Từ khóa : </strong><span></span>{{tag.snippet.tags}}<br><br>
+                            <strong class="titleshow">Liên kết : </strong><span><a class="linkvideo" href="https://www.youtube.com/watch?v={{tag.id}}">https://www.youtube.com/watch?v={{tag.id}}</a></span><br><br>
+                            </div>
+                            <a href="#!upload" ng-click="addtoplaylist(tag.id,tag.snippet.title,tag.snippet.description,tag.snippet.tags)" type="button" class="btn btn-success">Thêm Vào PlayList</a> 
+                            <a href="" id="closeupload" class="btn btn-danger" data-dismiss="modal">Đóng</a> 
+                        </div>  
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+<div class="panel panel-info" ng-controller="videocontrol" ng-show="showpanel">
+    <div class="panel-heading"><span class="glyphicon glyphicon-search"></span> Tìm Kiếm</div>
+    <div class="panel-body">
+        <div>
+            <div class="video1 col-md-3" ng-repeat="video in listVideos">
+                <img ng-click="showVideo(video.id.videoId)" ng-src="{{video.snippet.thumbnails.medium.url}}" style="max-width:100%">
+                <span class="btn" id="btninfo" ng-click="btnshowInfoSearch(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span>
+                <div class="title">
+                    {{video.snippet.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal anil" id="showInfosearch" class="modal fade" role="dialog" ng-repeat="video in listVideos">
+    <span class="closemodal" id="closemodal" data-dismiss="modal">&times;</span>
+    <div class="modal-dialog">
+        <div class="modal-content" ng-repeat="search in getsearch">
+            <div class="modal-header">
+                <h4 id="tittlevideomodal" class="modal-title">Thông Tin Video : {{search.snippet.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <div><img src="https://i.ytimg.com/vi/{{search.id}}/mqdefault.jpg"></div><br>
+                <div>                                       
+                <strong class="titleshow">Tên Video : </strong><span>{{search.snippet.title}}</span><br><br>
+                <strong class="titleshow">Kênh đăng tải : </strong><span>{{search.snippet.channelTitle}}</span><br><br>
+                <strong class="titleshow">Ngày đăng tải : </strong><span></span>{{search.snippet.publishedAt}}<br><br>
+                <strong class="titleshow">Mô tả : </strong><span></span>{{search.snippet.description}}<br><br>
+                <strong class="titleshow">Từ khóa : </strong><span></span>{{search.snippet.tags}}<br><br>
+                <strong class="titleshow">Liên kết : </strong><span><a class="linkvideo" href="https://www.youtube.com/watch?v={{search.id}}">https://www.youtube.com/watch?v={{search.id}}</a></span><br><br>
+                </div>
+                <a href="#!upload" ng-click="addtoplaylist(search.id,search.snippet.title,search.snippet.description,search.snippet.tags)" type="button" class="btn btn-success">Thêm Vào PlayList</a> 
+                <a href="" id="closeupload" class="btn btn-danger" data-dismiss="modal">Đóng</a> 
+            </div>  
+        </div>
+    </div>
+</div>
+    <div class="panel panel-info">
+        <div class="panel-heading"><span class="glyphicon glyphicon-music"></span> Những Bản Nhạc Hay</div>
+        <div class="panel-body">
+            <div>
+                 <div class="col-md-3" ng-repeat="video in listVideo3"><a class="thumbnail"><img ng-click="showVideo(video.id.videoId)" ng-src="{{video.snippet.thumbnails.medium.url}}" alt="Image" style="max-width:100%;"></a><span class="btn" id="btninfo" ng-click="showInfo(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span><div class="text-center"><strong><div class="titlevideo">{{video.snippet.title}}</div></strong></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- *********************************************
+ -->
+  

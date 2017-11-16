@@ -1,0 +1,89 @@
+    <div class="row col-md-6 registeration">
+        <div class ="col-md-12" ng-controller="logincontrol">
+            <h3 class="headerSign">Sign In</h3>
+            <div class="alert alert-info" role="alert">Nếu chưa có tài khoản vui lòng <a id="register-login" href="#!res">Đăng Kí</a> </div>
+            <form>                  
+                <div class="form-group">                    
+                    <input class="form-control" type="text" name="username" placeholder="Tài Khoản" ng-model="Obj.data.attributes.username">
+                </div>                   
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Mật Khẩu" ng-model="Obj.data.attributes.password">
+                </div>
+                 <div id="msgerrorsregister" class="alert alert-danger" role="alert" ng-show="msgerrorsregister"></div>
+                <button type="button" class="signbuttons btn btn-primary" ng-click="btnLogin()">Sign In</button>              
+            </form>           
+        </div>               
+    </div>
+    <div id="myCarousel1" class="carousel slide col-md-6" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <h3 class="headerSign"><span class="glyphicon glyphicon-pencil"></span> Đánh Giá Từ Người Dùng</h3>
+            <div class="carousel-inner">
+            <div id="slogan" class="item active">
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="https://baomoi-photo-3-td.zadn.vn/17/06/18/105/22557743/2_91017.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Linh Ka</strong></h3>
+                        <p>Em rất thích trang web của anh 😘 Em sẽ rủ đám bạn Cancer của em sử dụng trang web của anh thay cho Muvik 💖 Maiiu 💖💖💖💖💖</p>
+                        <p><strong style="color: red;">admin :</strong> 🙂 !</p>
+                    </div> 
+                </div>
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="http://a9.vietbao.vn/images/vn999/150/2015/03/20150316-ve-dep-dam-chat-tay-cua-em-gai-ca-si-phuong-linh-1.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Phương Ly</strong></h3>
+                        <p>Kể từ thời ngày hôm nay đây sẽ là Mặt Trời Của Em 💖💖💖💖💖</p>
+                        <p><strong style="color: red;">admin :</strong> 💖 !</p>
+                    </div> 
+                </div>
+            </div>
+            <div id="slogan" class="item">
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="https://znews-photo-td.zadn.vn/w1024/Uploaded/rohunwa/2017_07_27/153124.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Tùng EmTiPi</strong></h3>
+                        <p>Anh cần một bản hợp đồng để xin phép được hợp tác và upload những ca khúc mới lên trang web của em 🤔🤔🤔🤔</p>
+                    </div> 
+                </div>
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="http://api.muvik.tv/x-keam/images/tungson_anhcudidi.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Tùng Sơn</strong></h3>
+                        <p>Em đăng nhạc được không 😍😍😍😍</p>
+                        <p><strong style="color: red;">admin :</strong> Biến ! 😢😢😢</p>
+                    </div> 
+                </div>
+            </div>
+            <div id="slogan" class="item">
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2014_12_22/CcMrOwT8.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Tiểu Phú JackMa</strong></h3>
+                        <p>Đây là một điều chưa từng xảy ra trước đó 😵😵😵 Tôi nghĩ mình sẽ đầu tư vào đúng chỗ 😎😎😎</p>
+                    </div> 
+                </div>
+                <div>
+                    <div class="imgslogan col-md-3">
+                        <img src="img/pew.jpg">
+                    </div>
+                    <div class="slogan col-md-9">
+                        <h3><strong>Pew Pew</strong></h3>
+                        <p>Học đi các em các cháu , bố mẹ ở nhà thì còn lưng ra nuôi ăn học . Yêu với đương cái gì .. yêu với đương cái gì 😳😳😳</p>
+                    </div> 
+                </div>
+            </div>
+            </div>
+        </div>

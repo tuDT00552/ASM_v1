@@ -1,0 +1,80 @@
+<div class="panel panel-info" ng-controller="playlistCtr">
+    <div class="panel-heading"><span class="glyphicon glyphicon-search"></span> Danh Sách Đã Thêm</div>
+    <div class="panel-body">
+        <div ng-repeat="get in getVideo">
+            <div class="video1 col-md-3">
+                <img ng-click="showVideo(get.attributes.youtubeId)" ng-src="{{get.attributes.thumbnail}}" style="max-width:100%">
+                <span class="btn" id="btninfo" ng-click="showInfoUp(get.attributes.youtubeId,get.attributes.name,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span>
+                <div class="title">
+                    {{get.attributes.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modalvideo anil" id="myModal">
+        <span class="closemodal" id="closemodal">&times;</span>
+        <div class="modal-body">
+          <iframe class="modal-content" id="video-frame" width="854" height="480" src="" frameborder="0" allowfullscreen></iframe>
+        </div>  
+    </div>
+    <div class="modal anil" id="showInfo" class="modal fade" role="dialog" ng-repeat="get in getVideo">
+        <span class="closemodal" id="closemodal" data-dismiss="modal">&times;</span>
+        <div class="modal-dialog">
+            <div class="modal-content" ng-repeat="info in infoUp">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thông Tin Video : {{info.snippet.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div><img src="https://i.ytimg.com/vi/{{info.id}}/mqdefault.jpg"></div><br>
+                    <div>                                       
+                    <strong class="titleshow">Tên Video : </strong><span>{{info.snippet.title}}</span><br><br>
+                    <strong class="titleshow">Kênh đăng tải : </strong><span>{{info.snippet.channelTitle}}</span><br><br>
+                    <strong class="titleshow">Ngày đăng tải : </strong><span></span>{{info.snippet.publishedAt}}<br><br>
+                    <strong class="titleshow">Mô tả : </strong><span></span>{{info.snippet.description}}<br><br>
+                    <strong class="titleshow">Từ khóa : </strong><span></span>{{info.snippet.tags}}<br><br>
+                    <strong class="titleshow">Liên kết : </strong><span><a class="linkvideo" href="https://www.youtube.com/watch?v={{info.id}}">https://www.youtube.com/watch?v={{info.id}}</a></span><br><br>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-controller="videocontrol">
+    <div class="panel panel-info" ng-controller="videocontrol" ng-show="showpanel">
+    <div class="panel-heading"><span class="glyphicon glyphicon-search"></span> Tìm Kiếm</div>
+        <div class="panel-body">
+            <div>
+                <div class="video1 col-md-3" ng-repeat="video in listVideos">
+                    <img ng-click="showVideo(video.id.videoId)" ng-src="{{video.snippet.thumbnails.medium.url}}" style="max-width:100%">
+                    <span class="btn" id="btninfo" ng-click="btnshowInfoSearch(video.id.videoId,video.snippet.title,video.snippet.description,video.snippet.channelTitle,video.snippet.publishedAt)"><span class="glyphicon glyphicon-info-sign"></span></span>
+                    <div class="title">
+                        {{video.snippet.title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal anil" id="showInfosearch" class="modal fade" role="dialog" ng-repeat="video in listVideos">
+        <span class="closemodal" id="closemodal" data-dismiss="modal">&times;</span>
+        <div class="modal-dialog">
+            <div class="modal-content" ng-repeat="search in getsearch">
+                <div class="modal-header">
+                    <h4 id="tittlevideomodal" class="modal-title">Thông Tin Video : {{search.snippet.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div><img src="https://i.ytimg.com/vi/{{search.id}}/mqdefault.jpg"></div><br>
+                    <div>                                       
+                    <strong class="titleshow">Tên Video : </strong><span>{{search.snippet.title}}</span><br><br>
+                    <strong class="titleshow">Kênh đăng tải : </strong><span>{{search.snippet.channelTitle}}</span><br><br>
+                    <strong class="titleshow">Ngày đăng tải : </strong><span></span>{{search.snippet.publishedAt}}<br><br>
+                    <strong class="titleshow">Mô tả : </strong><span></span>{{search.snippet.description}}<br><br>
+                    <strong class="titleshow">Từ khóa : </strong><span></span>{{search.snippet.tags}}<br><br>
+                    <strong class="titleshow">Liên kết : </strong><span><a class="linkvideo" href="https://www.youtube.com/watch?v={{search.id}}">https://www.youtube.com/watch?v={{search.id}}</a></span><br><br>
+                    </div>
+                    <a href="#!upload" ng-click="addtoplaylist(search.id,search.snippet.title,search.snippet.description,search.snippet.tags)" type="button" class="btn btn-success">Thêm Vào PlayList</a> 
+                    <a href="" id="closeupload" class="btn btn-danger" data-dismiss="modal">Đóng</a> 
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
